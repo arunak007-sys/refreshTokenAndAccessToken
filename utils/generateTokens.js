@@ -14,7 +14,7 @@ const generateTokens = async (user, res) => {
         });
 
         res.cookie("accessToken", accessToken, {
-            maxAge: 20 * 1000, 
+            maxAge: 20 * 1000,
             httpOnly: true,
             secure: true,
         });
