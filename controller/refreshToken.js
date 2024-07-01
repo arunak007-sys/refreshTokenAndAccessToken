@@ -19,6 +19,12 @@ const refreshToken = async (req, res) => {
                 expiresIn: '20s'
             })
 
+            res.cookie("accessToken", token),{
+                maxAge: 2 * 1000,
+                httpOnly: true,
+                secure: true,
+            }  
+
             console.log('Generated Token:', token);
             res.status(200).json({ accessToken: token, message: "Access token created successfully" })
         })

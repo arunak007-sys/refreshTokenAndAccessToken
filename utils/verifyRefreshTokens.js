@@ -5,7 +5,7 @@ const verifyRefreshToken = (refreshToken) => {
     const privateKey = process.env.REFRESH_TOKEN_PRIVATE_KEY
 
     return new Promise((resolve, reject) => {
-        UserToken.findOne({ token:refreshToken }, (err, doc) => {
+       const doc = UserToken.findOne({ token:refreshToken })
             if (!doc) {
                 return reject({ err, message: "Invalid refresh token" })
             }
@@ -18,7 +18,6 @@ const verifyRefreshToken = (refreshToken) => {
                 resolve({ tokenDetails, message: "Valid refresh token" })
             })
         })
-    })
 }
 
 export default verifyRefreshToken

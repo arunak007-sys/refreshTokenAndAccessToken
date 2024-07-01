@@ -52,7 +52,7 @@ const login = async (req, res) => {
         }
 
         //  GNERATE TOKENS
-        const { accessToken, refreshToken } = await generateTokens(user)
+        const { accessToken, refreshToken } = await generateTokens(user,res)
 
         res.status(200).json({
             accessToken,

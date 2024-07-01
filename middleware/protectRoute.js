@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
 const auth = async (req, res, next) => {
-    const token = req.header("X-access-token")
+    const token = req.cookies.accessToken || req.headers.authorization
     if(!token) {
         return res.status(401).json({ message: "Access denied. No token provided" })
     }
